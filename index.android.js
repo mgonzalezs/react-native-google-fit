@@ -1,7 +1,7 @@
 'use strict'
 
 import { DeviceEventEmitter, NativeModules } from 'react-native'
-import { buildDailySteps, KgToLbs, lbsAndOzToK } from 'src/utils'
+import { buildDailySteps, KgToLbs, lbsAndOzToK } from './src/utils'
 
 const googleFit = NativeModules.RNGoogleFit
 
