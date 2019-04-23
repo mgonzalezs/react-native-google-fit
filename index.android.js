@@ -350,7 +350,11 @@ class RNGoogleFit {
     onAuthorizeFailure = (callback) => {
       const authFailedObserver = DeviceEventEmitter.addListener(
         'GoogleFitAuthorizeFailure',
-        (authorized) => callback(authorized)
+        authorizeError => {
+          if (!authorizeError.message.includes('SIGN_IN_REQUIRE')) {
+            callback(authorizeError);
+          }
+        },
       )
       this.eventListeners.push(authFailedObserver)
     }
